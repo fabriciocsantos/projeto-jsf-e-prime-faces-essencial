@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:h="http://xmlns.jcp.org/jsf/html">
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 	<h:head>	
 	
@@ -11,18 +12,66 @@
 	
 	</h:head>
 	
-	<body>
+	<h:body>
 		
 		<header>
 			<h:graphicImage library="algaworks" name="logo.png"/>
 		</header>
 		
-		<h:outputText value = "Olá" /> 
+		<div id="conteudo">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Razão Social: " for="razaoSocial"/>
+					<h:inputText id="razaoSocial"/>
+					
+					<h:outputLabel value="Nome Fantasia: " for="nomeFantasia"/>
+					<h:inputText id="nomeFantasia"/>
+					
+					<h:outputLabel value="Tipo Empresa: " for="tipo"/>
+					<h:selectOneMenu id="tipo">
+						<f:selectItem itemLabel="Selecione..."/>
+						<f:selectItem itemLabel="MEI" itemValue="MEI"/>
+						<f:selectItem itemLabel="LTDA" itemValue="LTDA"/>
+					</h:selectOneMenu>
+					
+					<h:outputLabel />
+					<h:commandButton value="Salvar"/>
+				</h:panelGrid>
+				
+				<h:dataTable value="#{[0, 0, 0, 0]}">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Razão Social"/>
+						</f:facet>
+						
+						<h:outputText value="AlgaWorks Software, Treinamentos LTDA"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nome Fantasia"/>
+						</f:facet>
+						
+						<h:outputText value="AlgaWorks"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Tipo Empresa"/>
+						</f:facet>
+						
+						<h:outputText value="LDTA"/>
+					</h:column>
+					
+				</h:dataTable>
+							
+			</h:form>
+		</div>
 		
 		<footer>
 			Curso Online "Jsf e PrimeFaces Essencial"
 		</footer>
 			
-	</body>
+	</h:body>
 	
 </html>
