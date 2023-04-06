@@ -6,6 +6,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import project.erp.model.Empresa;
+import project.erp.model.TipoEmpresa;
 
 @Named
 @ViewScoped
@@ -15,7 +16,17 @@ public class GestaoEmpresasBean implements Serializable {
     
     private Empresa empresa;
     
+    public void salvar() {
+    	System.out.println("Razão Social: " + empresa.getRazaoSocial()
+    			+ " - Nome Fantasia: " + empresa.getNomeFantasia()
+    			+ " - Tipo: " + empresa.getTipo());
+    }
+    
     public Empresa getEmpresa() {
 		return empresa;
 	} 
+    
+    public TipoEmpresa[]getTiposEmpresa(){
+    	return TipoEmpresa.values();
+    }
 }

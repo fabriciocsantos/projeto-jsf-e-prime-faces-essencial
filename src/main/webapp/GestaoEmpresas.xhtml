@@ -28,10 +28,10 @@
 					<h:inputText id="nomeFantasia" value="{gestaoEmpresasBean.empresa.nomeFantasia}"/>
 					
 					<h:outputLabel value="Tipo Empresa: " for="tipo"/>
-					<h:selectOneMenu id="tipo">	
+					<h:selectOneMenu id="tipo" value="#{gestaoEmpresasBean.empresa.tipo}">	
 						<f:selectItem itemLabel="Selecione..."/>
-						<f:selectItem itemLabel="MEI" itemValue="MEI"/>
-						<f:selectItem itemLabel="LTDA" itemValue="LTDA"/>
+						<f:selectItem value="#{gestapEmpresasBean.tiposEmpresa}"
+								var="tipoEmpresa" itemLabel="{tipoEmpresa.descricao}" itemValue="#{tipoEmpresa"/>
 					</h:selectOneMenu>
 					
 					<h:outputLabel />
