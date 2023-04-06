@@ -14,7 +14,7 @@ public class GestaoEmpresasBean implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private Empresa empresa;
+    private Empresa empresa = new Empresa();
     
     public void salvar() {
     	System.out.println("Razão Social: " + empresa.getRazaoSocial()
