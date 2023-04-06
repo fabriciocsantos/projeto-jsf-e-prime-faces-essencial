@@ -5,19 +5,17 @@ import java.io.Serializable;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
+import project.erp.model.Empresa;
+
 @Named
 @ViewScoped
 public class GestaoEmpresasBean implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private static Integer NUMERO = 0;
+    private Empresa empresa;
     
-    public GestaoEmpresasBean() {
-        NUMERO++;
-    }
-    
-    public Integer getNumero() {
-        return NUMERO;
-    }
+    public Empresa getEmpresa() {
+		return empresa;
+	} 
 }
