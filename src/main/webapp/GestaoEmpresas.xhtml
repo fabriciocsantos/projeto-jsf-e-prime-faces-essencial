@@ -32,6 +32,12 @@
 						var="tipoEmpresa" itemLabel="#{tipoEmpresa.descricao}" itemValue="#{tipoEmpresa}" />
 				</h:selectOneMenu>
 				
+				<h:outputLabel value="Data Fundação: " for="dataFundacao" />
+				<h:inputText id="dataFundacao" value="#{gestaoEmpresasBean.empresa.dataFundacao}" />
+				
+				<h:outputLabel value="Faturamento: " for="faturamento" />
+				<h:inputText id="faturamento" value="#{gestaoEmpresasBean.empresa.faturamento}" />
+				
 				<h:outputLabel />
 				<h:commandButton value="Salvar" actionListener="#{gestaoEmpresasBean.salvar}"/>
 				
