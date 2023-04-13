@@ -10,6 +10,10 @@
 
 <h:outputStylesheet library="algaworks" name="estilo.css" />
 
+<f:metadata>
+	<f:viewAction action="#{gestaoEmpresasBean.todasEmpresas}" />
+</f:metadata>
+
 </h:head>
 
 <h:body>
@@ -18,8 +22,27 @@
 	</header>
 	
 	<h2>Cadastro de Empresas</h2>
-	
+
 	<div id="conteudo">
+	
+		<p:dataTable value="#{gestaoEmpresasBean.listaEmpresas}"
+			var="empresa" emptyMessage="Nenhuma informação a ser exibida">
+			<p:column headerText="Razão social">
+				<h:outputText value="#{empresa.razaoSocial}" />
+			</p:column>
+			
+			<p:column headerText="Nome fantasia">
+				<h:outputText value="#{empresa.nomeFantasia}" />
+			</p:column>
+			
+			<p:column headerText="Tipo empresa">
+				<h:outputText value="#{empresa.tipo}" />
+			</p:column>
+			
+			<p:column headerText="Ramo atividade">
+				<h:outputText value="#{empresa.ramoAtividade.descricao}" />
+			</p:column>
+		</p:dataTable>
 			
 	</div>
 	

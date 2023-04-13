@@ -38,6 +38,10 @@ public class Empresas implements Serializable {
 		
 		return query.getResultList();
 	}
+	
+	public List<Empresa> todas() {		
+		return manager.createQuery("from Empresa", Empresa.class).getResultList();
+	}
 
 	public Empresa guardar(Empresa empresa) {
 		return manager.merge(empresa);
