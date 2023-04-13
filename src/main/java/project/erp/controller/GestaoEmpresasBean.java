@@ -15,9 +15,8 @@ import project.erp.repository.Empresas;
 public class GestaoEmpresasBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
-    @Inject
-    private Empresas empresas;
+        
+    private Empresas empresas = new Empresas();
     
     private List<Empresa> listaEmpresas;
     
