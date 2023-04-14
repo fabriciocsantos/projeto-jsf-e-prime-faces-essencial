@@ -17,13 +17,12 @@ public class GestaoEmpresasBean implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Inject
-    private Empresas empresas; 
+    private Empresas empresas;
     
     private List<Empresa> listaEmpresas;
     
     public void todasEmpresas() {
-    	//Método que faz busca no banco de dados motivo do erro
-        listaEmpresas = empresas.todas();
+       listaEmpresas = empresas.todas();
     }
     
     public List<Empresa> getListaEmpresas() {

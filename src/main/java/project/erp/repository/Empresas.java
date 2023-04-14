@@ -12,7 +12,7 @@ import project.erp.model.Empresa;
 public class Empresas implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private EntityManager manager;
 
@@ -39,9 +39,9 @@ public class Empresas implements Serializable {
 		return query.getResultList();
 	}
 	
-	public List<Empresa> todas() {		
-		return manager.createQuery("from Empresa", Empresa.class).getResultList();
-	}
+	public List<Empresa> todas() {
+         return manager.createQuery("from Empresa", Empresa.class).getResultList();
+    }
 
 	public Empresa guardar(Empresa empresa) {
 		return manager.merge(empresa);

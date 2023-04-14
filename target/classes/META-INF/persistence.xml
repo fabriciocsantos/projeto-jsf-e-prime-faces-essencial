@@ -6,7 +6,7 @@
 >
 	<persistence-unit name="AlgaWorksPU">
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cursojsfprimefaces" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cursojsfeprimefaces"/>
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="fafa123qwe.." />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

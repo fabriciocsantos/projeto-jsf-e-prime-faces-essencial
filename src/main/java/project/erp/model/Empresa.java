@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -50,14 +50,14 @@ public class Empresa implements Serializable {
 	
 	@Column(precision = 10, scale = 2)
 	private BigDecimal faturamento;
-
+	
 	public BigDecimal getFaturamento() {
-		return faturamento;
-	}
-
+        return faturamento;
+    }
+	
 	public void setFaturamento(BigDecimal faturamento) {
-		this.faturamento = faturamento;
-	}
+        this.faturamento = faturamento;
+    }
 
 	public Long getId() {
 		return id;
