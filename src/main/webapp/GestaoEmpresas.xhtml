@@ -24,26 +24,29 @@
 	<h2>Cadastro de Empresas</h2>
 
 	<div id="conteudo">
-
-		<p:dataTable value="#{gestaoEmpresasBean.listaEmpresas}" var="empresa" emptyMessage="Nenhuma informação a ser exibida"
-			paginator="true" rows="10" paginatorPosition="bottom">
-			<p:column headerText="Razão social">
-				<h:outputText value="#{empresa.razaoSocial}" />
-			</p:column>
-
-			<p:column headerText="Nome fantasia">
-				<h:outputText value="#{empresa.nomeFantasia}" />
-			</p:column>
-
-			<p:column headerText="Tipo empresa">
-				<h:outputText value="#{empresa.tipo}" />
-			</p:column>
-
-			<p:column headerText="Ramo atividade">
-				<h:outputText value="#{empresa.ramoAtividade.descricao}" />
-			</p:column>
-		</p:dataTable>
-
+		
+		<h:form>
+			<p:dataTable value="#{gestaoEmpresasBean.listaEmpresas}" var="empresa" emptyMessage="Nenhuma informação a ser exibida"
+				paginator="true" rows="10" paginatorPosition="bottom">
+				
+				<p:column headerText="Razão social" sortBy="#{empresa.razaoSocial}">
+					<h:outputText value="#{empresa.razaoSocial}" />
+				</p:column>
+	
+				<p:column headerText="Nome fantasia">
+					<h:outputText value="#{empresa.nomeFantasia}" />
+				</p:column>
+	
+				<p:column headerText="Tipo empresa">
+					<h:outputText value="#{empresa.tipo}" />
+				</p:column>
+	
+				<p:column headerText="Ramo atividade">
+					<h:outputText value="#{empresa.ramoAtividade.descricao}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+		
 	</div>
 
 	<footer> Curso online "JSF e PrimeFaces Essencial" </footer>
