@@ -10,13 +10,14 @@
 	<title>Gestão Empresas</title>
 
 	<h:outputStylesheet library="algaworks" name="estilo.css" />
-
-
+		
 </h:head>
 
 <h:body>
+	
 	#{gestaoEmpresasBean.listenerPreRenderView()}
-		<header>
+	
+	<header>
 		<h:graphicImage library="algaworks" name="logo.png" />
 	</header>
 
@@ -24,8 +25,8 @@
 
 	<div id="conteudo">
 
-		<p:dataTable value="#{gestaoEmpresasBean.listaEmpresas}" var="empresa"
-			emptyMessage="Nenhuma informação a ser exibida">
+		<p:dataTable value="#{gestaoEmpresasBean.listaEmpresas}" var="empresa" emptyMessage="Nenhuma informação a ser exibida"
+			paginator="true" rows="10" paginatorPosition="bottom">
 			<p:column headerText="Razão social">
 				<h:outputText value="#{empresa.razaoSocial}" />
 			</p:column>

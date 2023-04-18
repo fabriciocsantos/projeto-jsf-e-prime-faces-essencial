@@ -3,6 +3,7 @@ package project.erp.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,9 +22,10 @@ public class GestaoEmpresasBean implements Serializable {
     
     private List<Empresa> listaEmpresas;
     
+    @PostConstruct
     public void listenerPreRenderView() {
     	listaEmpresas = empresas.todas();
-    	System.out.println("Teste");
+    	System.out.println("--Funcionando--");
     }
     
     public void todasEmpresas() {
