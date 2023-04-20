@@ -26,7 +26,8 @@
 	                <span class="ui-icon ui-icon-grip-dotted-vertical" />
 	            </span>
 	            
-	            <p:commandButton value="Nova" icon="fa fa-plus" />
+	            <p:commandButton value="Nova" icon="fa fa-plus" 
+	            	onclick="PF('empresaDialogWidgetVar').show()"/>
 	            
 				<span class="ui-separator">
 	                <span class="ui-icon ui-icon-grip-dotted-vertical" />
@@ -65,6 +66,11 @@
 				<h:outputText value="#{empresa.ramoAtividade.descricao}" />
 			</p:column>
 		</p:dataTable>
+		
+		<p:dialog header="Nova empresa" widgetVar="empresaDialogWidgetVar"
+			modal="true" resizable="false" closeOnEscape="true">
+			<p:commandButton value="Teste!" />
+		</p:dialog>
 	</h:form>
 
 </ui:define>
