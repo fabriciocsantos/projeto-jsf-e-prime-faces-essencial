@@ -54,12 +54,12 @@ public class GestaoEmpresasBean implements Serializable {
        listaEmpresas = empresas.todas();
     }
     
-    public List<RamoAtividade> completarRamoAtividade(String termo){
-    	List<RamoAtividade> listaRamoAtividades = ramoAtividades.pesquisar(termo);
-    	
-    	ramoAtividadeConverter = new RamoAtividadeConverter(listaRamoAtividades);
-    	
-    	return listaRamoAtividades;
+    public List<RamoAtividade> completarRamoAtividade(String termo) {
+        List<RamoAtividade> listaRamoAtividades = ramoAtividades.pesquisar(termo);
+        
+        ramoAtividadeConverter = new RamoAtividadeConverter(listaRamoAtividades);
+        
+        return listaRamoAtividades;
     }
     
     public List<Empresa> getListaEmpresas() {
@@ -74,6 +74,14 @@ public class GestaoEmpresasBean implements Serializable {
 		this.termoPesquisa = termoPesquisa;
 	}
 	
+	public Converter getRamoAtividadeConverter() {
+		return ramoAtividadeConverter;
+	}
+
+	public void setRamoAtividadeConverter(Converter ramoAtividadeConverter) {
+		this.ramoAtividadeConverter = ramoAtividadeConverter;
+	}
+
 	public TipoEmpresa[] getTiposEmpresa() {
 		return TipoEmpresa.values();
 	}
