@@ -1,4 +1,4 @@
-
+	
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -75,6 +75,9 @@
 		
 		<p:dialog id="empresaDialog" header="Nova empresa" widgetVar="empresaDialogWidgetVar"
 			modal="true" resizable="false" closeOnEscape="true">
+			
+			<p:messages id="empresaMessages"/>
+			
 			<h:panelGrid id="empresaPanelGrid" columns="2"
 				rendered="#{gestaoEmpresasBean.empresa ne null}">
 				<p:outputLabel value="Razão Social: " for="razaoSocial"/>
@@ -111,8 +114,8 @@
 				
 				<h:outputLabel />
 				<p:commandButton value="Salvar" actionListener="#{gestaoEmpresasBean.salvar}"
-					update="empresasDataTable empresaPanelGrid"
-					oncomplete="PF('empresaDialogWidgetVar').hide()"
+					update="empresasDataTable empresaPanelGrid empresaMessages"
+					oncomplete="if(!args.validationFailed) PF('empresaDialogWidgetVar').hide()"
 					process="empresaDialog"/>
 			</h:panelGrid>
 		</p:dialog>	
