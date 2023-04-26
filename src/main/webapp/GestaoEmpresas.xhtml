@@ -13,9 +13,9 @@
 	
 <ui:define name="conteudo">
 		
-	<h:form>
+	<h:form id="frm">
 	
-		<p:messages autoUpdate="true"/>
+		<p:messages id="messages"/>
 	
 		<p:toolbar>
 			<f:facet name="left">
@@ -23,7 +23,7 @@
 					size="30" value="#{gestaoEmpresasBean.termoPesquisa}"/>
 				
 				<p:commandButton value="Pesquisar" icon="fa fa-search" 
-					actionListener="#{gestaoEmpresasBean.pesquisar}" update="empresasDataTable"
+					actionListener="#{gestaoEmpresasBean.pesquisar}" update="empresasDataTable messages"
 					process="@this termoPesquisa"/>
 				
 				<span class="ui-separator">
@@ -85,7 +85,7 @@
 					value="#{gestaoEmpresasBean.empresa.razaoSocial}"/>
 				
 				<p:outputLabel value="Nome fantasia: " for="nomeFantasia"/>
-				<p:inputText id="nomeFantasia" size="80" maxlength="120"
+				<p:inputText id="nomeFantasia" size="80" maxlength="80"
 					value="#{gestaoEmpresasBean.empresa.nomeFantasia}"/>
 				
 				<p:outputLabel value="Tipo empresa: " for="tipo" />
@@ -114,7 +114,7 @@
 				
 				<h:outputLabel />
 				<p:commandButton value="Salvar" actionListener="#{gestaoEmpresasBean.salvar}"
-					update="empresasDataTable empresaPanelGrid empresaMessages"
+					update=" empresaPanelGrid empresaMessages "
 					oncomplete="if(!args.validationFailed) PF('empresaDialogWidgetVar').hide()"
 					process="empresaDialog"/>
 			</h:panelGrid>
