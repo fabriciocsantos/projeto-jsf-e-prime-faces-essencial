@@ -43,7 +43,13 @@
 	            </span>
 	            
 	            <p:commandButton title="Editar" icon="fa fa-edit" 
-	            	disabled="#{not gestaoEmpresasBean.empresaSelecionada}"/>
+	            	disabled="#{not gestaoEmpresasBean.empresaSelecionada}"
+	            	actionListener="#{gestaoEmpresasBean.prepararEdicao}"
+	            	oncomplete="PF('empresaDialogWidgetVar').show()"
+	            	update="empresaDialog" process="@this">
+	            	
+	            	<p:resetInput target="empresaDialog"></p:resetInput>
+	            </p:commandButton>
 	            
 	            <p:commandButton title="Excluir" icon="fa fa-trash" 
 	            	disabled="#{not gestaoEmpresasBean.empresaSelecionada}"/>

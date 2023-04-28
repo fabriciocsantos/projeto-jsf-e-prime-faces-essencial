@@ -50,6 +50,10 @@ public class GestaoEmpresasBean implements Serializable {
     	empresa = new Empresa();
     }
     
+    public void prepararEdicao() {
+    	ramoAtividadeConverter = new RamoAtividadeConverter(Arrays.asList(empresa.getRamoAtividade()));
+    }
+    
     public void salvar() {
     	cadastroEmpresasService.salvar(empresa);
     	
