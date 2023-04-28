@@ -52,7 +52,10 @@
 	            </p:commandButton>
 	            
 	            <p:commandButton title="Excluir" icon="fa fa-trash" 
-	            	disabled="#{not gestaoEmpresasBean.empresaSelecionada}"/>
+	            	disabled="#{not gestaoEmpresasBean.empresaSelecionada}"
+	            	actionListener="#{gestaoEmpresasBean.excluir}"
+	            	update="messages empresasDataTable toolbar"
+	            	process="@this"/>
 	            
 				<span class="ui-separator">
 	                <span class="ui-icon ui-icon-grip-dotted-vertical" />
