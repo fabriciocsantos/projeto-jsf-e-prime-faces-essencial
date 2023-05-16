@@ -48,48 +48,35 @@
 
 					<p:commandButton value="Pesquisar" icon="fa fa-search"
 						actionListener="#{gestaoEmpresasBean.pesquisar}"
-						update="empresasDataTable messages" process="@this termoPesquisa" />
-
-					<span class="ui-separator"> <span
-						class="ui-icon ui-icon-grip-dotted-vertical" />
-					</span>
+						update="empresasDataTable messages" process="@this termoPesquisa" style="margin-left:10px" />
 
 					<p:commandButton value="Nova" icon="fa fa-plus"
 						actionListener="#{gestaoEmpresasBean.prepararNovaEmpresa}"
 						oncomplete="PF('empresaDialogWidgetVar').show()"
-						update="empresaDialog" process="@this">
+						update="empresaDialog" process="@this" style="margin-left:10px">
 
 						<p:resetInput target="empresaDialog" />
 					</p:commandButton>
-
-					<span class="ui-separator"> <span
-						class="ui-icon ui-icon-grip-dotted-vertical" />
-					</span>
 
 					<p:commandButton title="Editar" icon="fa fa-edit"
 						disabled="#{not gestaoEmpresasBean.empresaSelecionada}"
 						actionListener="#{gestaoEmpresasBean.prepararEdicao}"
 						oncomplete="PF('empresaDialogWidgetVar').show()"
-						update="empresaDialog" process="@this">
+						update="empresaDialog" process="@this" style="margin-left:10px">
 
 						<p:resetInput target="empresaDialog"></p:resetInput>
 					</p:commandButton>
-
+	
 					<p:commandButton title="Excluir" icon="fa fa-trash"
 						disabled="#{not gestaoEmpresasBean.empresaSelecionada}"
 						action="#{gestaoEmpresasBean.excluir}" process="@this"
-						update="messages empresasDataTable toolbar">
+						update="messages empresasDataTable toolbar" style="margin-left:5px">
 						<p:confirm icon="ui-icon-alert" header="Confirmar exclusão"
 							message="Posso excluir a empresa?" />
 					</p:commandButton>
-
-
-					<span class="ui-separator"> <span
-						class="ui-icon ui-icon-grip-dotted-vertical" />
-					</span>
-
+					
 					<p:commandButton title="Exportar para o Excel"
-						icon="fa fa-file-excel-o" ajax="false">
+						icon="fa fa-file-excel-o" ajax="false" style="margin-left:10px">
 						<p:dataExporter type="xls" target="empresasDataTable"
 							fileName="Empresas"></p:dataExporter>
 					</p:commandButton>
