@@ -5,13 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-
 import javax.faces.convert.Converter;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.primefaces.context.RequestContext;
+import org.primefaces.PrimeFaces;
 
 import project.erp.model.Empresa;
 import project.erp.model.RamoAtividade;
@@ -46,6 +45,9 @@ public class GestaoEmpresasBean implements Serializable {
 	private Converter ramoAtividadeConverter;
 
 	private Empresa empresa;
+	
+	private String text;
+    private String text2;
 
 	public void prepararNovaEmpresa() {
 		empresa = new Empresa();
@@ -62,7 +64,8 @@ public class GestaoEmpresasBean implements Serializable {
 
 		messages.info("Empresas salva com sucesso!");
 
-		RequestContext.getCurrentInstance().update(Arrays.asList("frm:empresasDataTable", "frm:messages"));
+		PrimeFaces.current().ajax().update("frm:empresasDataTable", "frm:messages");
+
 	}
 
 	public void excluir() {
@@ -109,7 +112,6 @@ public class GestaoEmpresasBean implements Serializable {
 		}
 
 	}
-
 	
 	private boolean jaHouvePesquisa() {
 		return termoPesquisa != null && !"".equals(termoPesquisa);
@@ -118,6 +120,22 @@ public class GestaoEmpresasBean implements Serializable {
 	public List<Empresa> getListaEmpresas() {
 		return listaEmpresas;
 	}
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getText2() {
+        return text2;
+    }
+
+    public void setText2(String text2) {
+        this.text2 = text2;
+    }
 
 	public String getTermoPesquisa() {
 		return termoPesquisa;
