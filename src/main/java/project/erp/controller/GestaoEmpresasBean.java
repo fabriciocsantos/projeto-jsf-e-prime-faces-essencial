@@ -45,9 +45,6 @@ public class GestaoEmpresasBean implements Serializable {
 	private Converter ramoAtividadeConverter;
 
 	private Empresa empresa;
-	
-	private String text;
-    private String text2;
 
 	public void prepararNovaEmpresa() {
 		empresa = new Empresa();
@@ -120,22 +117,6 @@ public class GestaoEmpresasBean implements Serializable {
 	public List<Empresa> getListaEmpresas() {
 		return listaEmpresas;
 	}
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getText2() {
-        return text2;
-    }
-
-    public void setText2(String text2) {
-        this.text2 = text2;
-    }
 
 	public String getTermoPesquisa() {
 		return termoPesquisa;

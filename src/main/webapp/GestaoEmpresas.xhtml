@@ -179,29 +179,6 @@
 
 			</p:dialog>
 
-			<div class="card">
-				<h5 class="mt-0">Basic</h5>
-				<p:textEditor widgetVar="editor1" value="#{gestaoEmpresasBean.text}"
-					height="300" />
-
-				<h3 class="first">Toolbar</h3>
-				<p:textEditor widgetVar="editor2" value="#{gestaoEmpresasBean.text}"
-					height="300" placeholder="Enter your content" required="true">
-					<f:facet name="toolbar">
-						<span class="ql-formats">
-							<button class="ql-bold"></button>
-							<button class="ql-italic"></button>
-							<button class="ql-underline"></button>
-							<button class="ql-strike"></button>
-						</span>
-						<span class="ql-formats"> <select class="ql-font"></select>
-							<select class="ql-size"></select>
-						</span>
-					</f:facet>
-				</p:textEditor>
-				<p:commandButton value="Save" update="@form" icon="pi pi-check" />
-			</div>
-
 		</h:form>
 
 	</ui:define>
