@@ -48,7 +48,8 @@
 
 					<p:commandButton value="Pesquisar" icon="fa fa-search"
 						actionListener="#{gestaoEmpresasBean.pesquisar}"
-						update="empresasDataTable messages" process="@this termoPesquisa" style="margin-left:10px" />
+						update="empresasDataTable messages" process="@this termoPesquisa"
+						style="margin-left:10px" />
 
 					<p:commandButton value="Nova" icon="fa fa-plus"
 						actionListener="#{gestaoEmpresasBean.prepararNovaEmpresa}"
@@ -66,15 +67,16 @@
 
 						<p:resetInput target="empresaDialog"></p:resetInput>
 					</p:commandButton>
-	
+
 					<p:commandButton title="Excluir" icon="fa fa-trash"
 						disabled="#{not gestaoEmpresasBean.empresaSelecionada}"
 						action="#{gestaoEmpresasBean.excluir}" process="@this"
-						update="messages empresasDataTable toolbar" style="margin-left:5px">
+						update="messages empresasDataTable toolbar"
+						style="margin-left:5px">
 						<p:confirm icon="ui-icon-alert" header="Confirmar exclusão"
 							message="Posso excluir a empresa?" />
 					</p:commandButton>
-					
+
 					<p:commandButton title="Exportar para o Excel"
 						icon="fa fa-file-excel-o" ajax="false" style="margin-left:10px">
 						<p:dataExporter type="xls" target="empresasDataTable"
@@ -166,6 +168,72 @@
 
 			</p:dialog>
 
+			<script>
+				//<![CDATA[
+				function onrangechange1() {
+					var second = PF('timelineSecondWdgt');
+					if (second.jq.data("rangeFired")) {
+						second.jq.data("rangeFired", null);
+						return;
+					}
+					var first = PF('timelineFirstWdgt');
+					var range = first.getVisibleRange();
+					first.jq.data("rangeFired", true);
+					PF('timelineSecondWdgt').setVisibleRange(range.start,
+							range.end);
+				}
+
+				function onrangechange2() {
+					var first = PF('timelineFirstWdgt');
+					if (first.jq.data("rangeFired")) {
+						first.jq.data("rangeFired", null);
+						return;
+					}
+					var second = PF('timelineSecondWdgt');
+					var range = second.getVisibleRange();
+					second.jq.data("rangeFired", true);
+					PF('timelineFirstWdgt').setVisibleRange(range.start,
+							range.end);
+				}
+
+				//]]>
+			</script>
+
+			<p:growl id="growl" showSummary="true" showDetail="false">
+				<p:autoUpdate />
+			</p:growl>
+
+			<div class="card">
+				<h2 style="margin-top: 0">Eventos</h2>
+				<p:timeline id="timelineFirst"
+					value="#{linkedTimelinesView.modelFirst}" var="task" height="250px"
+					widgetVar="timelineFirstWdgt" start="#{linkedTimelinesView.start}"
+					end="#{linkedTimelinesView.end}">
+					<p:ajax event="rangechange" process="@none"
+						onstart="onrangechange1(); return false;" />
+					<p:ajax event="select" listener="#{linkedTimelinesView.onSelect}" />
+
+					<h:panelGroup layout="block" rendered="#{not task.period}"
+						style="padding-bottom:5px">
+						<h:outputText value="#{task.title}" />
+					</h:panelGroup>
+					<p:graphicImage library="demo" name="#{task.imagePath}"
+						height="26px" />
+					<h:panelGroup rendered="#{task.period}" style="padding:8px">
+						<h:outputText value="#{task.title}" />
+					</h:panelGroup>
+				</p:timeline>
+			</div>
+
+			<div class="card">
+				<h2>Projetos</h2>
+				<p:timeline id="timelineSecond"
+					value="#{linkedTimelinesView.modelSecond}" height="150px"
+					widgetVar="timelineSecondWdgt">
+					<p:ajax event="rangechange" process="@none"
+						onstart="onrangechange2(); return false;" />
+				</p:timeline>
+			</div>
 		</h:form>
 
 	</ui:define>
