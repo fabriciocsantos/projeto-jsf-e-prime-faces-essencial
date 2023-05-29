@@ -14,17 +14,6 @@
 
 		<h:form id="frm">
 
-			<p:ajaxStatus styleClass="ajax-status">
-				<f:facet name="start">
-					<h:graphicImage library="algaworks" name="carregando.gif" />
-				</f:facet>
-				<f:facet name="complete">
-					<h:outputText value="" />
-				</f:facet>
-			</p:ajaxStatus>
-
-			<p:messages autoUpdate="true" />
-
 			<p:tree id="tree" value="#{basicView.treeModel}" var="node">
 				<p:treeNode>
 					<p:selectBooleanCheckbox value="#{node.selected}"
