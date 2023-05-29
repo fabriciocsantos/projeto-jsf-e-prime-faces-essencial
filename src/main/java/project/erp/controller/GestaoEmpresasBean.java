@@ -109,7 +109,16 @@ public class GestaoEmpresasBean implements Serializable {
 		}
 
 	}
-	
+
+	public void tempoEspera() {
+		// Simula demora no processamento
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+		}
+
+	}
+
 	private boolean jaHouvePesquisa() {
 		return termoPesquisa != null && !"".equals(termoPesquisa);
 	}

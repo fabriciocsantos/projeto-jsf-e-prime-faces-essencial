@@ -7,12 +7,42 @@
 	template="WEB-INF/template/Layout.xhtml">
 
 	<ui:define name="titulo">
-	Cadastro de Empresas
-</ui:define>
+		Cadastro de Empresas
+	</ui:define>
 
 	<ui:define name="conteudo">
 
 		<h:form id="frm">
+
+			<p:ajaxStatus styleClass="ajax-status">
+				<f:facet name="start">
+					<h:graphicImage library="algaworks" name="carregando.gif" />
+				</f:facet>
+				<f:facet name="complete">
+					<h:outputText value="" />
+				</f:facet>
+			</p:ajaxStatus>
+
+			<p:messages autoUpdate="true" />
+
+			<p:tree id="tree" value="#{basicView.treeModel}" var="node">
+				<p:treeNode>
+					<p:selectBooleanCheckbox value="#{node.selected}"
+						onclick="handleCheckboxClick(this)" />
+					<h:outputText value="#{node.label}" />
+				</p:treeNode>
+			</p:tree>
+
+			<script>
+				function handleCheckboxClick(checkbox) {
+					var parentCheckbox = $(checkbox).closest('li').find(
+							'input[type="checkbox"]:first');
+					var childrenCheckboxes = $(checkbox).closest('li').find(
+							'input[type="checkbox"]').not(parentCheckbox);
+					childrenCheckboxes.prop('checked', checkbox.checked)
+							.change();
+				}
+			</script>
 
 			<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
 			<p:panel header="Sobre o site" toggleable="true" closable="true"

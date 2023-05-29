@@ -35,8 +35,15 @@ h1 {
 	margin-bottom: 10px
 }
 
-/*Panels*/
-
 .panelInfo{
 	margin-bottom: 3%;
+}
+
+.ajax-status{
+	width: 35px;
+	height: 35px;
+	position:fixed;
+	right:21%;
+	top:9%;
+		
 }

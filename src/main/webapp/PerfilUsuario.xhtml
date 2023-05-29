@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Tela de Login</title>
+</h:head>
+<h:body>
+
+	<h:form id="frm">
+		<p:messages />
+	
+		<p:panelGrid columns="2" style="margin: auto">
+				<p:outputLabel value="Login" for="login" />
+				<p:inputText id="login" value="#{perfilUsuarioBean.login}"
+					required="true">
+					<p:ajax
+						listener="#{perfilUsuarioBean.verificarDisponibilidadelogin}"
+						event="change" process="@this" partialSubmit="true" />
+				</p:inputText>
+
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" value="#{perfilUsuarioBean.nome}"
+					required="true" />
+				<p:commandButton value="Cadastrar"
+					action="#{perfilUsuarioBean.cadastrar}" />
+			</p:panelGrid>
+			
+	</h:form>
+
+</h:body>
+</html>
