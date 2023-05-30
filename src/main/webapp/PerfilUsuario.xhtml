@@ -7,13 +7,14 @@
 <h:head>
 	<meta charset="UTF-8" />
 	<title>Tela de Login</title>
-	
+
 	<h:outputStylesheet library="algaworks" name="estilo.css" />
-</h:head>	
+</h:head>
 <h:body>
 
-	<h:form id="frm">
-		<p:ajaxStatus styleClass="ajax-status" >
+	<h:form id="formLogin">
+
+		<p:ajaxStatus styleClass="ajax-status">
 			<f:facet name="start">
 				<h:graphicImage library="algaworks" name="carregando.gif" />
 			</f:facet>
@@ -21,9 +22,9 @@
 				<h:outputText value="" />
 			</f:facet>
 		</p:ajaxStatus>
-
-		<p:messages autoUpdate="false" />	
-
+		
+		<p:messages autoUpdate="true" showSummary="true" showDetail="true" ></p:messages>
+		
 		<p:panelGrid columns="2" style="margin: auto">
 			<p:outputLabel value="Login" for="login" />
 			<p:inputText id="login" value="#{perfilUsuarioBean.login}"
@@ -39,8 +40,15 @@
 			<p:commandButton value="Login"
 				action="#{perfilUsuarioBean.cadastrar}" />
 		</p:panelGrid>
-
+	
+		<p:messages id="messages" />
+		
+		<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+		<p:growl id="growl" showSummary="true" showDetail="false">
+				<p:autoUpdate />
+		</p:growl>
+		
 	</h:form>
-
+	
 </h:body>
 </html>
