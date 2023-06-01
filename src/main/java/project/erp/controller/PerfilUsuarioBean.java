@@ -46,7 +46,7 @@ public class PerfilUsuarioBean implements Serializable {
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
-	public void cadastrar() {
+	public void login() {
 		tempoEspera();
 
 		if ("Admin".equalsIgnoreCase(this.login)) {

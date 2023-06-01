@@ -35,10 +35,10 @@
 			</p:inputText>
 
 			<p:outputLabel value="Senha" for="senha" />
-			<p:inputText id="senha" value="#{perfilUsuarioBean.senha}"
-				required="true" />
-			<p:commandButton value="Login"
-				action="#{perfilUsuarioBean.cadastrar}" />
+			<p:password id="senha" value="#{perfilUsuarioBean.senha}"
+				required="true"/>
+			<p:commandButton value="Entrar"
+				action="#{perfilUsuarioBean.login}" />
 		</p:panelGrid>
 	
 		<p:messages id="messages" />
