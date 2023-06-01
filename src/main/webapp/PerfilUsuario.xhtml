@@ -8,7 +8,7 @@
 	<meta charset="UTF-8" />
 	<title>Tela de Login</title>
 
-	<h:outputStylesheet library="algaworks" name="estilo.css" />
+	<h:outputStylesheet library="algaworks" name="estiloLogin.css" />
 </h:head>
 <h:body>
 
@@ -25,7 +25,7 @@
 		
 		<p:messages autoUpdate="true" showSummary="true" showDetail="true" ></p:messages>
 		
-		<p:panelGrid columns="2" style="margin: auto">
+		<p:panelGrid columns="1" styleClass="login-panel">
 			<p:outputLabel value="Login" for="login" />
 			<p:inputText id="login" value="#{perfilUsuarioBean.login}"
 				required="true">
