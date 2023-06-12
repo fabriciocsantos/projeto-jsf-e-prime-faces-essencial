@@ -14,49 +14,6 @@
 
 		<h:form id="frm">
 
-			<p:tree id="tree" value="#{basicView.treeModel}" var="node">
-				<p:treeNode>
-					<p:selectBooleanCheckbox value="#{node.selected}"
-						onclick="handleCheckboxClick(this)" />
-					<h:outputText value="#{node.label}" />
-				</p:treeNode>
-			</p:tree>
-
-			<script>
-				function handleCheckboxClick(checkbox) {
-					var parentCheckbox = $(checkbox).closest('li').find(
-							'input[type="checkbox"]:first');
-					var childrenCheckboxes = $(checkbox).closest('li').find(
-							'input[type="checkbox"]').not(parentCheckbox);
-					childrenCheckboxes.prop('checked', checkbox.checked)
-							.change();
-				}
-			</script>
-
-			<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
-			<p:panel header="Sobre o site" toggleable="true" closable="true"
-				toggleSpeed="500" closeSpeed="500" widgetVar="panel"
-				styleClass="panelInfo">
-
-				<p class="m-0">Nosso site oferece um cadastro fácil e rápido,
-					permitindo a coleta de dados personalizados. Com recursos de
-					análise poderosos, visualize estatísticas claras e identifique
-					insights relevantes. Priorizamos a segurança dos dados,
-					implementando medidas avançadas de proteção. Simplifique o processo
-					de cadastro e aproveite estatísticas valiosas em nossa plataforma..</p>
-
-				<f:facet name="options">
-					<p:menu>
-						<p:submenu label="Settings">
-							<p:menuitem value="Toggle" url="#" icon="pi pi-clone"
-								onclick="PF('panel').toggle()" />
-							<p:menuitem value="Remove" url="#" icon="pi pi-times"
-								onclick="PF('panel').close()" />
-						</p:submenu>
-					</p:menu>
-				</f:facet>
-			</p:panel>
-
 			<p:messages id="messages" />
 
 			<p:toolbar id="toolbar">
@@ -186,9 +143,10 @@
 				</h:panelGrid>
 
 			</p:dialog>
-			
-			<p:outputLabel id="feedback" value="Deixe seu Feedack conosco" style="margin-left: 43%;"/>
-			
+
+			<p:outputLabel id="feedback" value="Deixe seu Feedack conosco"
+				style="margin-left: 43%;" />
+
 		</h:form>
 
 	</ui:define>
