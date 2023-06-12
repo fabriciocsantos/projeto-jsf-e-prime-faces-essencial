@@ -6,7 +6,6 @@
 >
 	<persistence-unit name="AlgaWorksPU">
 		<class>project.erp.model.Empresa</class>
-		<class>project.erp.model.RamoAtividade</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cursojsfeprimefaces"/>
 			<property name="javax.persistence.jdbc.user" value="root" />

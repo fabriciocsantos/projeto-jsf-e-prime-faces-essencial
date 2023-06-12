@@ -1,4 +1,4 @@
-package project.erp.model;
+ package project.erp.model;
 
 import java.io.Serializable;
 

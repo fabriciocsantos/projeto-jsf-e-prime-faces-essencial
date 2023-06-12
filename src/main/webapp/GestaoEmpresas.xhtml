@@ -14,6 +14,8 @@
 
 		<h:form id="frm">
 
+
+
 			<p:messages id="messages" />
 
 			<p:toolbar id="toolbar">
@@ -108,7 +110,7 @@
 					<p:outputLabel value="Nome fantasia: " for="nomeFantasia" />
 					<p:inputText id="nomeFantasia" size="80" maxlength="80"
 						value="#{gestaoEmpresasBean.empresa.nomeFantasia}" />
-
+						
 					<p:outputLabel value="Tipo empresa: " for="tipo" />
 					<p:selectOneMenu id="tipo"
 						value="#{gestaoEmpresasBean.empresa.tipo}">
@@ -143,10 +145,7 @@
 				</h:panelGrid>
 
 			</p:dialog>
-
-			<p:outputLabel id="feedback" value="Deixe seu Feedack conosco"
-				style="margin-left: 43%;" />
-
+			
 		</h:form>
 
 	</ui:define>
