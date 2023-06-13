@@ -13,8 +13,30 @@
 	<ui:define name="conteudo">
 
 		<h:form id="frm">
-
-
+			
+	  		<p:panelGrid columns="2">
+	  			<p:outputLabel value="Nome" for="nome"/>
+	  			<p:inputText id="nome" required="true" value="#{gestaoEmpresasBean.nome}"/>
+	  			
+	  			<p:outputLabel value="Profissão" for="profissao"/>
+	  			<p:selectOneListbox id="profissao" value="#{gestaoEmpresasBean.profissao}"
+	  				required="true">
+	  				<f:selectItem itemLabel="Estudante" itemValue="1"/>
+	  				<f:selectItem itemLabel="Empresário" itemValue="2"/>
+	  				<f:selectItem itemLabel="Programador" itemValue="3"/>
+	  				<f:selectItem itemLabel="Outra..." itemValue="4"/>
+	  			</p:selectOneListbox>
+	  			
+	  			<p:outputLabel value="Interesse" for="interesse"/>
+	  			<p:selectOneListbox id="interesse" value="#{gestaoEmpresasBean.interesse}" 
+	  			required="true" converter="interesseConversor">
+	  				<f:selectItems value="#{gestaoEmpresasBean.interesses}" var="interesse"
+	  					itemLabel="#{interesse.descricao}" itemValue="#{interesse}"/>
+	  			</p:selectOneListbox>
+	  			
+	  		</p:panelGrid>
+	  		
+	  		<p:commandButton value="Atualizar" action="#{gestaoEmpresasBean.atualizar}" update="@form"/>
 
 			<p:messages id="messages" />
 
