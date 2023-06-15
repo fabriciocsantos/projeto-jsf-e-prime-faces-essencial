@@ -1,13 +1,10 @@
 package project.erp.controller;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -48,19 +45,6 @@ public class GestaoEmpresasBean implements Serializable {
 	private Converter ramoAtividadeConverter;
 
 	private Empresa empresa;
-	
-	public static final List<Interesse> INTERESSES = new ArrayList<>();
-	
-	static {
-		INTERESSES.add(new Interesse("Esportes", "esportes"));
-		INTERESSES.add(new Interesse("Computação", "computacao"));
-		INTERESSES.add(new Interesse("Cinema", "cinema"));
-		INTERESSES.add(new Interesse("Leitura", "leitura"));
-	}
-	
-	private String nome;
-	private String profissao;
-	private Interesse interesse;
 
 	public void prepararNovaEmpresa() {
 		empresa = new Empresa();
@@ -139,17 +123,6 @@ public class GestaoEmpresasBean implements Serializable {
 		return termoPesquisa != null && !"".equals(termoPesquisa);
 	}
 	
-	public void atualizar() {
-		System.out.println("Profissão: " + this.profissao);
-		System.out.println("Interesse: " + this.interesse.getDescricao());
-		
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado!"));
-	};
-	
-	public List<Interesse> getInteresses(){
-		return INTERESSES;
-	};
-	
 	public List<Empresa> getListaEmpresas() {
 		return listaEmpresas;
 	}
@@ -185,30 +158,5 @@ public class GestaoEmpresasBean implements Serializable {
 	public boolean isEmpresaSelecionada() {
 		return empresa != null && empresa.getId() != null;
 	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-	public String getProfissao() {
-		return profissao;
-	}
-
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
-	}
-
-	public Interesse getInteresse() {
-		return interesse;
-	}
-
-	public void setInteresse(Interesse interesse) {
-		this.interesse = interesse;
-	}
-
 
 }
