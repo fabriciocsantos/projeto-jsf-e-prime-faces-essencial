@@ -45,7 +45,8 @@ public class GestaoEmpresasBean implements Serializable {
 	private Converter ramoAtividadeConverter;
 
 	private Empresa empresa;
-
+	
+	
 	public void prepararNovaEmpresa() {
 		empresa = new Empresa();
 	}
@@ -158,5 +159,4 @@ public class GestaoEmpresasBean implements Serializable {
 	public boolean isEmpresaSelecionada() {
 		return empresa != null && empresa.getId() != null;
 	}
-
 }
